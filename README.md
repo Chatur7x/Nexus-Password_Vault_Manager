@@ -2,6 +2,18 @@
 
 A military-grade, zero-knowledge password manager built with an advanced cryptographic architecture combining C (for memory-safe encryption execution) and Python (for logic, key derivation, and UI).
 
+## 🖥️ Architecture & Tech Stack
+
+This project was intentionally engineered across three distinct languages to maximize performance, security, and usability:
+
+*   **C (Core Engine)**: Handles bare-metal, memory-safe execution of AES-256-CBC cryptography. Used specifically because C allows direct manipulation and physical wiping of RAM (`SecureZeroMemory`) which garbage-collected languages cannot guarantee.
+*   **Python (Middleware & CLI)**: Orchestrates advanced logic, memory-hard key derivation (`scrypt`), HMAC-SHA256 authenticated encryption verification, and serves as the primary system backend.
+*   **Java & Python (GUIs)**: The project includes two separate graphical interfaces:
+    *   **CustomTkinter (Python)**: A gorgeous, dark-mode "Hacker Terminal" UI natively bound to the backend.
+    *   **Swing (Java)**: A lightweight, cross-platform interface operating via isolated subprocess bridging.
+
+---
+
 ## 🚀 Advanced Cryptographic Features
 
 ### 1. Encrypt-then-MAC (Authenticated Encryption)
