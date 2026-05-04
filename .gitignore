@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+data/
+*.class
+*.dll
+*.so
+*.exe
+.env
