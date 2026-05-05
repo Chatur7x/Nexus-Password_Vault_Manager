@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>NEXUS - Zero-Knowledge Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="mesh-bg"></div>
+    <div class="grid-overlay"></div>
+    
+    <div id="app">
+      <!-- Authentication Overlay -->
+      <div id="auth-overlay" class="glass-panel">
+        <div class="auth-container">
+          <div class="brand">
+            <div class="logo-glitch">NEXUS</div>
+            <div class="subtitle">ZERO-KNOWLEDGE VAULT</div>
+          </div>
+          <div class="auth-form">
+            <div class="input-group">
+              <input type="password" id="master-password" placeholder="ENTER MASTER KEY" autocomplete="off" />
+              <div class="scan-line"></div>
+            </div>
+            <button id="unlock-btn" class="btn-primary">
+              <span class="btn-text">INITIALIZE DECRYPTION</span>
+              <div class="btn-glitch"></div>
+            </button>
+            <div class="auth-status" id="auth-status">AWAITING INPUT...</div>
+          </div>
+          
+          <div class="security-badges">
+            <div class="badge"><span class="dot green"></span> AES-256-GCM</div>
+            <div class="badge"><span class="dot green"></span> SCRYPT KDF</div>
+            <div class="badge"><span class="dot green"></span> MEMORY SECURE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Vault UI (Hidden initially) -->
+      <main id="vault-main" class="hidden">
+        <header class="vault-header glass-panel">
+          <div class="header-brand">NEXUS<span class="version">v2.0.0</span></div>
+          <div class="system-status">
+            <div class="status-indicator">
+              <div class="radar-ping"></div>
+              <span>CONNECTION SECURE</span>
+            </div>
+            <button id="lock-btn" class="btn-danger">LOCK VAULT</button>
+          </div>
+        </header>
+
+        <div class="vault-content">
+          <aside class="sidebar glass-panel">
+            <nav class="nav-menu">
+              <button class="nav-item active">All Items</button>
+              <button class="nav-item">Favorites</button>
+              <button class="nav-item">Identity</button>
+              <button class="nav-item">Secure Notes</button>
+            </nav>
+            <div class="sidebar-stats">
+              <div class="stat-box">
+                <span class="stat-label">VAULT HEALTH</span>
+                <span class="stat-value text-green">100%</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">ENTRIES</span>
+                <span class="stat-value" id="entry-count">0</span>
+              </div>
+            </div>
+          </aside>
+
+          <section class="passwords-view glass-panel">
+            <div class="view-header">
+              <input type="text" class="search-bar" placeholder="Search encrypted index..." />
+              <button id="add-btn" class="btn-primary sm">+ NEW RECORD</button>
+            </div>
+            
+            <div class="passwords-list" id="passwords-list">
+              <!-- Dynamically populated -->
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- Add Record Modal (Hidden) -->
+      <div id="add-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+          <h2 class="modal-title">ENCRYPT NEW RECORD</h2>
+          <div class="form-group">
+            <label>TITLE</label>
+            <input type="text" id="record-title" placeholder="e.g., ProtonMail" />
+          </div>
+          <div class="form-group">
+            <label>USERNAME</label>
+            <input type="text" id="record-username" placeholder="user@domain.com" />
+          </div>
+          <div class="form-group">
+            <label>PASSWORD</label>
+            <div class="password-input-wrapper">
+              <input type="password" id="record-password" placeholder="••••••••••••••••" />
+              <button type="button" id="generate-pwd-btn" class="btn-secondary">GENERATE</button>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button id="cancel-btn" class="btn-secondary">CANCEL</button>
+            <button id="save-btn" class="btn-primary">ENCRYPT & SAVE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NEXUS Vault</title>
+  <style>
+    body {
+      width: 320px;
+      margin: 0;
+      padding: 15px;
+      background-color: #050505;
+      color: #00ff41;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 16px;
+      border-bottom: 1px solid #00ff41;
+      padding-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      background: #111;
+      border: 1px solid #00ff41;
+      color: #00ff41;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #00ff41;
+      color: #000;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00cc33;
+    }
+    .status {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h2>NEXUS Vault</h2>
+  <div id="login-view">
+    <input type="password" id="master-pwd" placeholder="Master Password" />
+    <button id="unlock-btn">UNLOCK VAULT</button>
+    <div class="status" id="status-msg">Vault is locked.</div>
+  </div>
+  
+  <div id="vault-view" style="display: none;">
+    <p>Connected to ZK Sync Server.</p>
+    <button id="fill-btn">AUTOFILL CURRENT PAGE</button>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

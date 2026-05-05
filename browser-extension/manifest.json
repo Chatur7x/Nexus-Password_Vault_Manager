@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "NEXUS Vault Autofill & Phishing Protection",
+  "version": "1.0",
+  "description": "Zero-Knowledge Password Manager extension for AutoFill and Domain Match Phishing Detection.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}
